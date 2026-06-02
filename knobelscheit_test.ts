@@ -20,4 +20,15 @@ Deno.test("Wuerfelsumme 7 [5, 2], gibt true zurueck", () => {
 Deno.test("Wuerfelsumme 7 [4, 2], gibt false zurueck", () => {
     const spiel = new Knobelscheit();
     assertEquals(spiel.istGueltigerZug([2, 4], 7), false);
+});
+
+Deno.test("istGewonnen gibt false bei neuem Spiel", () => {
+    const spiel = new Knobelscheit();
+    assertEquals(spiel.istGewonnen(), false);
+});
+
+Deno.test("istGewonnen gibt true wenn alle Zahlen umgedreht sind", () => {
+    const spiel = new Knobelscheit();
+    spiel.umdrehen([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    assertEquals(spiel.istGewonnen(), true);
 })
