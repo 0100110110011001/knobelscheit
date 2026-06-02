@@ -8,4 +8,10 @@ export class Knobelscheit {
     umdrehen(zahlen: number[]) {
         this.offeneZahlen = this.offeneZahlen.filter((zahl) => !zahlen.includes(zahl));
     }
+
+    istGueltigerZug(zahlen: number[], wuerfelSumme: number): boolean {
+        const alleOffen = zahlen.every((zahl) => this.offeneZahlen.includes(zahl));
+        const summe = zahlen.reduce((a, b) => a + b, 0);
+        return alleOffen && summe === wuerfelSumme;
+    }
 }
