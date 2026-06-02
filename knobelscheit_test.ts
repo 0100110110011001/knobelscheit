@@ -31,4 +31,16 @@ Deno.test("istGewonnen gibt true wenn alle Zahlen umgedreht sind", () => {
     const spiel = new Knobelscheit();
     spiel.umdrehen([1, 2, 3, 4, 5, 6, 7, 8, 9])
     assertEquals(spiel.istGewonnen(), true);
-})
+});
+
+Deno.test("zugMoeglich gibt false wenn kein Zug moeglich", () => {
+    const spiel = new Knobelscheit();
+    spiel.umdrehen([1, 2, 3, 4, 5, 6]);
+    assertEquals(spiel.zugMoeglich(4), false);
+});
+
+Deno.test("zugMoeglich gibt true wenn Zug moeglich", () => {
+    const spiel = new Knobelscheit();
+    spiel.umdrehen([1, 2, 3, 4, 5, 6]);
+    assertEquals(spiel.zugMoeglich(8), true);
+});
