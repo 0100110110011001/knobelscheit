@@ -1,5 +1,7 @@
 export class Wuerfel {
-    werfen(): number {
-        return Math.floor(Math.random() * 6) +1;
+    public ergebnis = 0;
+
+    public werfen() {
+        this.ergebnis = Math.floor(Math.random() * 6) + 1;
     }
 }
